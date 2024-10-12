@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "todos",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "completed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"web3/level_0/02.SolidityExample/Declaring and importing Struct.sol": "Todos"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"web3/level_0/02.SolidityExample/Declaring and importing Struct.sol": {
+			"keccak256": "0x739fb85fa325423986b8b8ddc3cee30a1503c254c39666550eafa6d670431422",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ef41510e1429a3f6adb799f27cfe51177c8b919bb6e9fe8499074c87b2fe364a",
+				"dweb:/ipfs/QmQ8o1NkAyPY5kCVaCJ5XzUtUpTBqWMpyesoz7tFPgjnnQ"
+			]
+		},
+		"web3/level_0/02.SolidityExample/StructDeclaration.sol": {
+			"keccak256": "0xd5d53141819422428c852fae4e55ac8e46670be0f8a157cc2e000133a0b519c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://490d2e81274b42c2fc68a2f1de9b5c7a8b6cd1f86e60f80c69579a8da82a1309",
+				"dweb:/ipfs/QmSJU4m8rtTZmYxXAakHt3LRFdQM415Z8XZVcgcw9rkoJq"
+			]
+		}
+	},
+	"version": 1
+}
