@@ -58,8 +58,6 @@ console.log(`WETH持仓: ${ethers.formatEther(balanceWETH)}\n`);
 const balanceETH = await provider.getBalance(addresses[10]);
 console.log(`ETH持仓: ${ethers.formatEther(balanceETH)}\n`);
 
-const balanceETH2 = await contractWETH.balanceOf(addressWETH);
-console.log(`2ETH持仓: ${ethers.formatEther(balanceETH2)}\n`);
 console.log("\n4. 调用multiTransferETH()函数，给每个钱包转 0.00001 ETH");
 // 发起交易
 // const tx = await contractAirdrop.multiTransferETH(addresses, amounts, {
@@ -74,12 +72,13 @@ console.log("\n4. 调用multiTransferETH()函数，给每个钱包转 0.00001 ET
 // console.log(`发送后该钱包ETH持仓: ${ethers.formatEther(balanceETH2)}\n`);
 
 // console.log("\n5. 调用multiTransferToken()函数，给每个钱包转 0.00001 WETH");
-// // 先approve WETH给Airdrop合约
+// 先approve WETH给Airdrop合约
 // const txApprove = await contractWETH.approve(
 //   addressAirdrop,
-//   ethers.parseEther("0.0002")
+//   ethers.parseEther("0.002")
 // );
 // await txApprove.wait();
+// console.log("ok");
 // // 发起交易
 // const tx2 = await contractAirdrop.multiTransferToken(
 //   addressWETH,
