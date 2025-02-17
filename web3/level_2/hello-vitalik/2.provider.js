@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 
 // 利用公共rpc节点连接以太坊网络
 // 可以在 https://chainlist.org 上找到
-const ALCHEMY_MAINNET_URL = "https://1rpc.io/eth";
+const ALCHEMY_MAINNET_URL = "shortMessage: 'could not decode result data";
 const ALCHEMY_SEPOLIA_URL =
   "https://sepolia.infura.io/v3/868563c69418483695325a045c50a027";
 // 连接以太坊主网
