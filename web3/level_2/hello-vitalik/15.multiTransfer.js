@@ -6,7 +6,7 @@ const mnemonic = `tattoo around foster ramp blur blur bulb monitor loan hat aero
 const hdNode = ethers.HDNodeWallet.fromPhrase(mnemonic);
 console.log(hdNode);
 console.log("\n2. 通过HD钱包派生20个钱包");
-const numWallet = 20;
+const numWallet = 2;
 // 派生路径：m / purpose' / coin_type' / account' / change / address_index
 // 我们只需要切换最后一位address_index，就可以从hdNode派生出新钱包
 let basePath = "44'/60'/0'/0";
@@ -16,7 +16,7 @@ for (let i = 0; i < numWallet; i++) {
   let walletNew = new ethers.Wallet(hdNodeNew.privateKey);
   addresses.push(walletNew.address);
 }
-const amounts = Array(20).fill(ethers.parseEther("0.00001"));
+const amounts = Array(2).fill(ethers.parseEther("0.0002"));
 console.log(`发送数额：${amounts}`);
 
 const ALCHEMY_MAINNET_URL =
@@ -52,43 +52,43 @@ const addressWETH = "0x7b79995e5f793a07bc00c21412e50ecae098e7f9"; // WETH Contra
 const contractWETH = new ethers.Contract(addressWETH, abiWETH, wallet);
 console.log("\n3. 读取一个地址的ETH和WETH余额");
 //读取WETH余额
-const balanceWETH = await contractWETH.balanceOf(addresses[10]);
+const balanceWETH = await contractWETH.balanceOf(addresses[1]);
 console.log(`WETH持仓: ${ethers.formatEther(balanceWETH)}\n`);
 //读取ETH余额
-const balanceETH = await provider.getBalance(addresses[10]);
-console.log(`ETH持仓: ${ethers.formatEther(balanceETH)}\n`);
+// const balanceETH = await provider.getBalance(addresses[1]);
+// console.log(`ETH持仓: ${ethers.formatEther(balanceETH)}\n`);
 
 console.log("\n4. 调用multiTransferETH()函数，给每个钱包转 0.00001 ETH");
 // 发起交易
 // const tx = await contractAirdrop.multiTransferETH(addresses, amounts, {
-//   value: ethers.parseEther("0.0002"),
+//   value: ethers.parseEther("0.004"),
 // });
-// // 等待交易上链
+// 等待交易上链
 // await tx.wait();
-// // console.log(`交易详情：`)
-// // console.log(tx)
-// const balanceETH2 = await provider.getBalance(addresses[10]);
+// console.log(`交易详情：`)
+// console.log(tx)
+// const balanceETH2 = await provider.getBalance(addresses[1]);
 
 // console.log(`发送后该钱包ETH持仓: ${ethers.formatEther(balanceETH2)}\n`);
 
-// console.log("\n5. 调用multiTransferToken()函数，给每个钱包转 0.00001 WETH");
+console.log("\n5. 调用multiTransferToken()函数，给每个钱包转 0.00001 WETH");
 // 先approve WETH给Airdrop合约
-// const txApprove = await contractWETH.approve(
-//   addressAirdrop,
-//   ethers.parseEther("0.002")
-// );
-// await txApprove.wait();
-// console.log("ok");
-// // 发起交易
-// const tx2 = await contractAirdrop.multiTransferToken(
-//   addressWETH,
-//   addresses,
-//   amounts
-// );
-// // 等待交易上链
-// await tx2.wait();
-// // console.log(`交易详情：`)
-// // console.log(tx2)
-// // 读取WETH余额
-// const balanceWETH2 = await contractWETH.balanceOf(addresses[10]);
-// console.log(`发送后该钱包WETH持仓: ${ethers.formatEther(balanceWETH2)}\n`);
+const txApprove = await contractWETH.approve(
+  addressAirdrop,
+  ethers.parseEther("0.002")
+);
+await txApprove.wait();
+console.log("ok", amounts);
+// 发起交易
+const tx2 = await contractAirdrop.multiTransferToken(
+  addressWETH,
+  addresses,
+  amounts
+);
+// 等待交易上链
+await tx2.wait();
+// console.log(`交易详情：`)
+// console.log(tx2)
+// 读取WETH余额
+const balanceWETH2 = await contractWETH.balanceOf(addresses[1]);
+console.log(`发送后该钱包WETH持仓: ${ethers.formatEther(balanceWETH2)}\n`);
